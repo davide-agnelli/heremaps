@@ -1,13 +1,14 @@
-package com.heromaps.client.result;
+package com.heromaps.client.model;
+
+import com.heromaps.client.result.SegmentsResponse;
 
 import java.util.List;
 
-public class EvaluateTravelPoint {
+public class RouteReport {
 
 	private double distance;
 	private String time;
 	private List<SegmentsResponse> segments;
-	private WeatheratdestResponse weatheratdest;
 
 	public double getDistance() {
 		return distance;
@@ -31,14 +32,6 @@ public class EvaluateTravelPoint {
 
 	public void setSegments(List<SegmentsResponse> segments) {
 		this.segments = segments;
-	}
-
-	public WeatheratdestResponse getWeatheratdest() {
-		return weatheratdest;
-	}
-
-	public void setWeatheratdest(WeatheratdestResponse weatheratdest) {
-		this.weatheratdest = weatheratdest;
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.heromaps.client.heromaps_response.weather_conditions;
+package com.heromaps.client.heromaps.response.weather_conditions;
 
 public class WeatherReportResponse {
 

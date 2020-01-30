@@ -1,6 +1,6 @@
-package com.heromaps.client.service;
+package com.heromaps.client.heromaps.service;
 
-import com.heromaps.client.heromaps_response.weather_conditions.WeatherReportResponse;
+import com.heromaps.client.heromaps.response.weather_conditions.WeatherReportResponse;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -45,7 +45,7 @@ public class WeatherConditionsService implements APIConfiguration {
 		service = retrofit.create(WeatherConditionsInterface.class);
 	}
 
-	public WeatherReportResponse weatherReport(float latitude, float longitude) throws IOException {
+	public WeatherReportResponse weatherReport(double latitude, double longitude) throws IOException {
 		Call<WeatherReportResponse> retrofitCall = service.weatherReport(PRODUCT, latitude, longitude, ONEOBSERVATION);
 
 		Response<WeatherReportResponse> response = retrofitCall.execute();

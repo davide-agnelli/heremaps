@@ -1,5 +1,6 @@
 package com.heromaps.client.restapi;
 
+import com.heromaps.client.dto.RouteDTO;
 import com.heromaps.client.dto.WaypointDTO;
 import com.heromaps.client.facade.WaypointFacade;
 import com.heromaps.client.result.EvaluateTravelPoint;
@@ -24,23 +25,23 @@ public class WaypointRestController {
 	private WaypointFacade waypointFacade;
 
 	@PostMapping
-	ResponseEntity<EvaluateTravelPoint> calculates(@RequestBody List<WaypointDTO> waypoints) {
+	ResponseEntity<EvaluateTravelPoint> calculates(@RequestBody RouteDTO route) {
+
+		final List<WaypointDTO> waypoints = route.waypoints;
 
 		if (waypoints == null) {
 			throw new IllegalArgumentException("Waypoints required");
 		}
 
+		//TODO can be add mapper for transform dto to model
 		for (WaypointDTO waypoint : waypoints) {
 			if (waypoint.lat == null || waypoint.lng == null) {
 				throw new IllegalArgumentException("Wrong number format for longitude or latitude");
 			}
 		}
-
-		//TODO replace EvaluateTravelPoint with dto
-		//TODO add mapper for convert EvaluateTravelPoint with EvaluateTravelPointDTO and WaypointDTO to Waypoint
 		final EvaluateTravelPoint evaluateTravelPoint;
 		try {
-			evaluateTravelPoint = waypointFacade.calculate(waypoints);
+			evaluateTravelPoint = waypointFacade.calculate(route);
 		} catch (IOException e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}

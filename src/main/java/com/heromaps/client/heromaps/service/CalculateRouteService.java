@@ -1,6 +1,6 @@
-package com.heromaps.client.service;
+package com.heromaps.client.heromaps.service;
 
-import com.heromaps.client.heromaps_response.calculate_route.CalculateRouteResponseTypeResponse;
+import com.heromaps.client.heromaps.response.calculate_route.CalculateRouteResponse;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -17,7 +17,7 @@ import java.util.List;
 public class CalculateRouteService implements APIConfiguration {
 
 	private static final String CALCULATE_ROUTE_BASE_URL = "https://route.ls.hereapi.com/routing/7.2/";
-	private final String MODE = "fastest%3Bcar";
+	private final String MODE = "fastest;car";
 
 	private CalculateRouteInterface service;
 
@@ -34,7 +34,8 @@ public class CalculateRouteService implements APIConfiguration {
 					Request request = requestBuilder.build();
 
 					return chain.proceed(request);
-				}).build();
+				})
+				.build();
 
 		Retrofit retrofit = new Retrofit.Builder()
 				.baseUrl(CALCULATE_ROUTE_BASE_URL)
@@ -45,18 +46,17 @@ public class CalculateRouteService implements APIConfiguration {
 		service = retrofit.create(CalculateRouteInterface.class);
 	}
 
-	public CalculateRouteResponseTypeResponse getRoute(List<String> waypoint) throws IOException {
-		Call<Object> retrofitCall = service.listRepos(waypoint, MODE);
+	public CalculateRouteResponse getRoute(List<String> waypoint) throws IOException {
+		Call<CalculateRouteResponse> retrofitCall = service.listRepos(waypoint, MODE);
 
-		Response<Object> response = retrofitCall.execute();
+		Response<CalculateRouteResponse> response = retrofitCall.execute();
 
 		if (!response.isSuccessful()) {
 			throw new IOException(response.errorBody() != null
 					? response.errorBody().string() : "Unknown error");
 		}
 
-		final Object body = response.body();
-		return new CalculateRouteResponseTypeResponse();
+		return response.body();
 	}
 
 }
