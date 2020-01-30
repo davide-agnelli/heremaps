@@ -9,17 +9,10 @@
 			"name": "waypoint",
 			"request": {
 				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\n   {\n      \"lat\":40.7500,\n      \"lng\":73.9933\n   \n\t},\n\t{\n      \"lat\":40.7558,\n      \"lng\":73.9869\n   \n\t},\n\t{\n      \"lat\":40.7558,\n      \"lng\":73.9868\n   \n\t}\n]",
+					"raw": "{\n   \"timestamp\": 1580409270759,\n   \"waypoints\":  [\n\t   \t{\n\t      \"lat\":40.7480,\n\t      \"lng\":-73.9862\n\t   \n\t\t},\n\t\t{\n\t      \"lat\":40.7500,\n\t      \"lng\":-73.9933\n\t   \n\t\t},\n\t\t{\n\t      \"lat\":40.7558,\n\t      \"lng\":-73.9869\n\t\t},\n\t\t\t   \t{\n\t      \"lat\":40.7480,\n\t      \"lng\":-73.9862\n\t  \n\t\t},\n\t\t{\n\t      \"lat\":40.7413,\n\t      \"lng\": -73.9784\n\t\t}   \n\t]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -65,7 +58,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?waypoint0=40.7480%2C-73.9862&waypoint1=40.7500%2C-73.9933&waypoint2=40.7558%2C-73.9869&mode=fastest%3Bcar",
+					"raw": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?waypoint=40.7480%2C-73.9862&waypoint=40.7500%2C-73.9933&waypoint=40.7558%2C-73.9869&mode=fastest%3Bcar",
 					"protocol": "https",
 					"host": [
 						"route",
@@ -80,15 +73,15 @@
 					],
 					"query": [
 						{
-							"key": "waypoint0",
+							"key": "waypoint",
 							"value": "40.7480%2C-73.9862"
 						},
 						{
-							"key": "waypoint1",
+							"key": "waypoint",
 							"value": "40.7500%2C-73.9933"
 						},
 						{
-							"key": "waypoint2",
+							"key": "waypoint",
 							"value": "40.7558%2C-73.9869"
 						},
 						{
@@ -101,7 +94,7 @@
 			"response": []
 		},
 		{
-			"name": "Weather Conditions Copy",
+			"name": "Weather Conditions",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -164,7 +157,7 @@
 					]
 				},
 				"url": {
-					"raw": "https://weather.ls.hereapi.com/weather/1.0/report.json?product=observation&latitude=43.9285&longitude=11.0326&oneobservation=true",
+					"raw": "https://weather.ls.hereapi.com/weather/1.0/report.json?product=observation&latitude=43.9285&longitude=11.0326&oneobservation=observation",
 					"protocol": "https",
 					"host": [
 						"weather",
@@ -192,7 +185,7 @@
 						},
 						{
 							"key": "oneobservation",
-							"value": "true"
+							"value": "observation"
 						}
 					]
 				}
