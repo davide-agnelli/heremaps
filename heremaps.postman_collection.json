@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "617ec639-3112-4c06-a913-0d2b0510411d",
+		"name": "heremaps",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "waypoint",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n   {\n      \"lat\":40.7500,\n      \"lng\":73.9933\n   \n\t},\n\t{\n      \"lat\":40.7558,\n      \"lng\":73.9869\n   \n\t},\n\t{\n      \"lat\":40.7558,\n      \"lng\":73.9868\n   \n\t}\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/waypoint",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"waypoint"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Route with an intermediate stop poin",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "O_0es3AG8oJG8DeyKhhy4uQLlFAZ6LeqT7J2UhOetmI",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apiKey",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?waypoint0=40.7480%2C-73.9862&waypoint1=40.7500%2C-73.9933&waypoint2=40.7558%2C-73.9869&mode=fastest%3Bcar",
+					"protocol": "https",
+					"host": [
+						"route",
+						"ls",
+						"hereapi",
+						"com"
+					],
+					"path": [
+						"routing",
+						"7.2",
+						"calculateroute.json"
+					],
+					"query": [
+						{
+							"key": "waypoint0",
+							"value": "40.7480%2C-73.9862"
+						},
+						{
+							"key": "waypoint1",
+							"value": "40.7500%2C-73.9933"
+						},
+						{
+							"key": "waypoint2",
+							"value": "40.7558%2C-73.9869"
+						},
+						{
+							"key": "mode",
+							"value": "fastest%3Bcar"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Weather Conditions Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "O_0es3AG8oJG8DeyKhhy4uQLlFAZ6LeqT7J2UhOetmI",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apiKey",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "product",
+							"value": "observation",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "apiKey",
+							"value": "O_0es3AG8oJG8DeyKhhy4uQLlFAZ6LeqT7J2UhOetmI",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "oneobservation",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "longitude",
+							"value": "11.0326",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "latitude",
+							"value": "43.9285",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://weather.ls.hereapi.com/weather/1.0/report.json?product=observation&latitude=43.9285&longitude=11.0326&oneobservation=true",
+					"protocol": "https",
+					"host": [
+						"weather",
+						"ls",
+						"hereapi",
+						"com"
+					],
+					"path": [
+						"weather",
+						"1.0",
+						"report.json"
+					],
+					"query": [
+						{
+							"key": "product",
+							"value": "observation"
+						},
+						{
+							"key": "latitude",
+							"value": "43.9285"
+						},
+						{
+							"key": "longitude",
+							"value": "11.0326"
+						},
+						{
+							"key": "oneobservation",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
