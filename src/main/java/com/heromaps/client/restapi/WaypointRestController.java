@@ -33,6 +33,10 @@ public class WaypointRestController {
 			throw new IllegalArgumentException("Waypoints required");
 		}
 
+		if (waypoints.size() < 2) {
+			throw new IllegalArgumentException("Required minimum 2 waypoint ");
+		}
+
 		//TODO can be add mapper for transform dto to model
 		for (WaypointDTO waypoint : waypoints) {
 			if (waypoint.lat == null || waypoint.lng == null) {
