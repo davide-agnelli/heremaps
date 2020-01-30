@@ -7,7 +7,7 @@ import java.util.List;
 public class RouteReport {
 
 	private double distance;
-	private String time;
+	private double time;
 	private List<SegmentsResponse> segments;
 
 	public double getDistance() {
@@ -18,11 +18,11 @@ public class RouteReport {
 		this.distance = distance;
 	}
 
-	public String getTime() {
+	public double getTime() {
 		return time;
 	}
 
-	public void setTime(String time) {
+	public void setTime(double time) {
 		this.time = time;
 	}
 

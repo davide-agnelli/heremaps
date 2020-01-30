@@ -5,7 +5,7 @@ import java.util.List;
 public class EvaluateTravelPoint {
 
 	private double distance;
-	private String time;
+	private double time;
 	private List<SegmentsResponse> segments;
 	private WeatheratdestResponse weatheratdest;
 
@@ -17,11 +17,11 @@ public class EvaluateTravelPoint {
 		this.distance = distance;
 	}
 
-	public String getTime() {
+	public double getTime() {
 		return time;
 	}
 
-	public void setTime(String time) {
+	public void setTime(double time) {
 		this.time = time;
 	}
 

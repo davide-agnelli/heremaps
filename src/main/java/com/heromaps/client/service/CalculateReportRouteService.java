@@ -49,7 +49,7 @@ public class CalculateReportRouteService {
 
 		final RouteReport routeReport = new RouteReport();
 		routeReport.setDistance(summary.getDistance());
-		routeReport.setTime(summary.getBaseTime().toString());
+		routeReport.setTime(summary.getBaseTime());
 		routeReport.setSegments(convertRouteTypeResponseToSegments(routeTypeResponse.getLeg()));
 
 		return routeReport;
